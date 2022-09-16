@@ -1,60 +1,25 @@
-import "./App.css";
-import { NavLink, Switch, Route } from "react-router-dom";
+import React from "react";
+import Header from "./Header";
+import Main from "./Main";
+import Sidebar from "./Sidebar";
+import "./styles.css";
 
-function App() {
-  return (
-    <div className="container">
-      <header className="header">
-        <div className="logo">Dashboard</div>
-      </header>
-      <main className="main">
-        <div className="sidebar-container">
-          <ul>
-            <li>
-              <NavLink to="/" exact>
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/articles" exact>
-                Articles
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/people" exact>
-                People
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/books" exact>
-                Books
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/help" exact>
-                Help & Support
-              </NavLink>
-            </li>
-          </ul>
+export default class App extends React.Component {
+  state = {
+    navClosed: false,
+  };
+  changeNavbar = () => {
+    this.setState({ navClosed: !this.state.navClosed });
+  };
+  render() {
+    return (
+      <div className={`container ${this.state.navClosed && "nav-closed"}`}>
+        <Header changeNavbar={this.changeNavbar} />
+        <div className="main">
+          <Sidebar />
+          <Main />
         </div>
-        <div className="body-container">
-          <Switch>
-            <Route path="/" exact>
-              <h2>🚀 Welcome to Homepage!</h2>
-            </Route>
-            <Route path="/help">Help</Route>
-            <Route path="/articles" exact>
-              Articles
-            </Route>
-            <Route path="/people">People</Route>
-            <Route path="/books">Books</Route>
-            <Route path="/articles/:slug">Article</Route>
-            <Route path="*">NotFound</Route>
-          </Switch>
-        </div>
-      </main>
-    </div>
-  );
+      </div>
+    );
+  }
 }
-
-export default App;
