@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-dashboard-layout-assignment/static/css/main.b298a163.css",
+    "main.js": "/react-dashboard-layout-assignment/static/js/main.151baba0.js",
+    "index.html": "/react-dashboard-layout-assignment/index.html",
+    "main.b298a163.css.map": "/react-dashboard-layout-assignment/static/css/main.b298a163.css.map",
+    "main.151baba0.js.map": "/react-dashboard-layout-assignment/static/js/main.151baba0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b298a163.css",
+    "static/js/main.151baba0.js"
+  ]
+}
